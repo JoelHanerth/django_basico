@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserir Produto</title>
+    <link rel="stylesheet" href="{% static 'produtos/css/estilo.css' %}">
+
+</head>
+<body>
+    <h1>Olá {{ nome }}, insira um produto</h1>
+
+    <form action="{% url 'inserir_produto' %}" method="POST">{% csrf_token %}
+        <input type="text" name="nome" placeholder="Digite o nome do produto" required>
+        <input type="number" name="preco" placeholder="Digite o preço do produto" required>
+        <input type="submit" value="Enviar">
+    </form>
+
+</body>
+</html> 
