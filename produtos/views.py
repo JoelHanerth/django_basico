@@ -7,16 +7,29 @@ def inserir_produto(request: HttpRequest):
         nome = request.POST.get("nome")
         preco = request.POST.get("preco")
 
-        if not nome or not preco:
-            return HttpResponse("Erro: Preencha todos os campos!")
-
         produto = Produto(nome=nome, preco=preco)
         produto.save()
 
-        return redirect('ver_produto', id=produto.id)
+        return redirect('listar_produtos')
 
     return render(request, 'inserir_produto.html', {
         'nome': 'Usuário'})
+ 
+    
+def editar_produto(request: HttpRequest, id: int):
+    produto = Produto.objects.get(id=id)
+
+    if request.method == "POST":
+        nome = request.POST.get("nome")
+        preco = request.POST.get("preco")
+
+        produto.nome = nome
+        produto.preco = preco
+        produto.save()
+
+        return redirect('listar_produtos')
+
+    return render(request, 'inserir_produto.html', {'produto': produto})
 
 
 def ver_produto(request: HttpRequest, id: int):
