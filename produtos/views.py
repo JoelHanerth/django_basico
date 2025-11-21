@@ -49,4 +49,3 @@ def excluir_produto(request: HttpRequest, id: int):
         return redirect('listar_produtos')
 
     return render(request, 'confirmar_exclusao.html', {'produto': produto})
-
