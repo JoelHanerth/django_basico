@@ -51,4 +51,3 @@ python manage.py runserver
 
 Observações sobre o app `produtos`
 - Templates relevantes: `inserir_produto.html`, `listar_produtos.html`, `ver_produto.html`, `confirmar_exclusao.html` (localizados em `produtos/templates`).
-- Se alterar arquivos estáticos em produção, execute `python manage.py collectstatic` e configure o servidor para servi-los.
