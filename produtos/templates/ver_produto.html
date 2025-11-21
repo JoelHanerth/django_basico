@@ -5,14 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Produto</title>
-    <link rel="stylesheet" href="{% static 'produtos/css/estilo.css' %}">
 
+    <!-- CSS global unificado -->
+    <link rel="stylesheet" href="{% static 'produtos/css/estilo_global.css' %}">
 </head>
 <body>
-    <h1>Produto inserido:</h1>
-    <p>ID: {{ produto.id }}</p>
-    <p>Nome: {{ produto.nome }}</p>
-    <p>Preço: {{ produto.preco }}</p>
+
+    <div class="container">
+        <h1 class="titulo">Detalhes do Produto</h1>
+
+        <p class="info"><strong>ID:</strong> {{ produto.id }}</p>
+        <p class="info"><strong>Nome:</strong> {{ produto.nome }}</p>
+        <p class="info"><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+
+        <a href="{% url 'listar_produtos' %}" class="btn btn-back">Voltar</a>
+    </div>
 
 </body>
-</html> 
+</html>

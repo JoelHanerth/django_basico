@@ -12,8 +12,7 @@ def inserir_produto(request: HttpRequest):
 
         return redirect('listar_produtos')
 
-    return render(request, 'inserir_produto.html', {
-        'nome': 'Usuário'})
+    return render(request, 'inserir_produto.html')
  
     
 def editar_produto(request: HttpRequest, id: int):
